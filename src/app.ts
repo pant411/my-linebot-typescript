@@ -52,14 +52,16 @@ async function handleEvent(event: any) {
     if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null);
     }
-    if (text_req == "เหี้ย") {
+
+
+    if (text_req.includes("เหี้ย") || text_req.includes("ขยะ")) {
         return client.replyMessage(event.replyToken, {
             "type": "image",
             "originalContentUrl": "https://thaipublica.org/wp-content/uploads/2019/03/prayut_officail-620x613.jpg",
             "previewImageUrl": "https://thaipublica.org/wp-content/uploads/2019/03/prayut_officail-620x613.jpg"
         });
     }
-    else if (text_req == "โควิด") {
+    else if (text_req.includes("โควิด")) {
         let _covid: string = await covid_data();
         return client.replyMessage(event.replyToken, {
             "type": 'text',
@@ -75,6 +77,6 @@ async function handleEvent(event: any) {
 
 }
 
-app.listen(4782, () => {
+app.listen(5555, () => {
     console.log("Application is running!");
 })
