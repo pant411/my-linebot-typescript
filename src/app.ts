@@ -1,5 +1,4 @@
 import express, { Application, Request, Response } from 'express'
-// ES2015 modules or TypeScript
 import * as line from '@line/bot-sdk';
 import axios from 'axios';
 
@@ -39,7 +38,7 @@ async function covid_data(): Promise<string> {
     }
 }
 
-app.post('/webhook', line.middleware(config), (req, res) => {
+app.post('/webhook', line.middleware(config), (req: Request, res: Response) => {
     Promise
         .all(req.body.events.map(handleEvent))
         .then((result) => res.json(result));
