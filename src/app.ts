@@ -2,7 +2,6 @@ import express, { Application, Request, Response } from 'express'
 // ES2015 modules or TypeScript
 import * as line from '@line/bot-sdk';
 import axios from 'axios';
-const https = require('https');
 
 const app: Application = express();
 
