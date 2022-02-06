@@ -23,7 +23,7 @@ interface Covid {
 }
 
 // get covid data
-async function covid_data(): Promise<string> {
+async function covid_data(): Promise<any> {
     var url = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all';
     var txt1: string;
     try {
