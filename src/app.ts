@@ -3,6 +3,7 @@ import * as line from '@line/bot-sdk';
 import covid_data from './CovidData';
 
 const app: Application = express();
+const port: any = process.env.PORT || 5555;
 
 const config = {
     channelAccessToken: 'RbgMHjW+FrjWJ3r31Et3aynM8zNLbVmoDpE93PTK/wv0X8HQHg+RxkPBXMUkVh+tnyJm6DvdF4zbfeKXyI/3ifpO+PQH/yGMrRNBSK/AtB7vKZecFpuifquNToBdAahLVcRnKIHDNF8RwG24O4uPjwdB04t89/1O/w1cDnyilFU=',
@@ -39,6 +40,6 @@ async function handleEvent(event: any) {
 
 }
 
-app.listen(5555, () => {
+app.listen(port, () => {
     console.log("Application is running!");
 })
