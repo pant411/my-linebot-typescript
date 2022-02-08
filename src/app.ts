@@ -1,8 +1,8 @@
-import express, { Application, Request, Response } from 'express'
+import * as express from 'express'
 import * as line from '@line/bot-sdk';
 import covid_data from './CovidData';
 
-const app: Application = express();
+const app: any = express;
 const port: any = process.env.PORT || 5555;
 
 const config = {
@@ -10,7 +10,7 @@ const config = {
     channelSecret: '23b99b5cabbc705f4a68e34e8761e45c'
 };
 
-app.post('/webhook', line.middleware(config), (req: Request, res: Response) => {
+app.post('/webhook', line.middleware(config), (req: any, res: any) => {
     Promise
         .all(req.body.events.map(handleEvent))
         .then((result) => res.json(result));
